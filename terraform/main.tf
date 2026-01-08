@@ -108,7 +108,7 @@ resource "aws_s3_bucket_policy" "secure_storage" {
                 Principal = "*"
                 Action    = "s3:*"
                 Resource  = [
-                    "${aws_s3_bucket.secure_storage.arn}",
+                    aws_s3_bucket.secure_storage.arn,
                     "${aws_s3_bucket.secure_storage.arn}/*"
                 ]
                 Condition = {
