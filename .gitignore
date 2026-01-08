@@ -1,0 +1,24 @@
+# Terraform state files (contain sensitive data)
+*.tfstate
+*.tfstate.*
+*.tfstate.backup
+
+# Terraform variables that might contain secrets
+terraform.tfvars
+*.auto.tfvars
+
+# AWS credentials
+.aws/
+*.pem
+
+# Terraform plugin cache
+.terraform/
+.terraform.lock.hcl
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
