@@ -3,7 +3,7 @@
 ## Implemented Controls
 
 ### ✅ Encryption at Rest (AES-256)
-**Decision:** Use AWS-managed encryption (SSE-S3) instead of KMS.
+**Decision:** Use AWS-managed encryption (SSE-S3) instead of KMS.  
 **Rationale:** 
 - AES-256 is FIPS 140-2 compliant and suitable for most use cases
 - No additional cost
@@ -13,7 +13,7 @@
 **Mitigation:** CloudTrail logs all S3 API calls
 
 ### ✅ Versioning Enabled
-**Decision:** Keep all object versions with 90-day retention for non-current versions.
+**Decision:** Keep all object versions with 90-day retention for non-current versions.  
 **Rationale:**
 - Protects against accidental deletion
 - Ransomware defense mechanism
@@ -21,7 +21,7 @@
 **Cost Impact:** Minimal for lab usage
 
 ### ❌ Cross-Region Replication (Not Implemented)
-**Decision:** Skip for Phase 1
+**Decision:** Skip for Phase 1  
 **Rationale:**
 - Doubles storage costs
 - Data transfer costs between regions
@@ -31,7 +31,7 @@
 **Mitigation:** Versioning provides recovery within region
 
 ### ✅ Public Access Block (All 4 Settings)
-**Decision:** Block all public access at bucket level
+**Decision:** Block all public access at bucket level  
 **Rationale:**
 - Prevents accidental public exposure (Capital One-style breaches)
 - Defense in depth - even if policy allows public, bucket-level block overrides
@@ -41,14 +41,14 @@
 **Decision:** 
 - Abort incomplete multipart uploads after 7 days
 - Transition to Glacier after 30 days
-- Delete non-current versions after 90 days
+- Delete non-current versions after 90 days  
 **Rationale:**
 - Prevents cost accumulation from failed uploads
 - Optimizes storage costs
 - Balances recovery needs with cost management
 
 ### ❌ Event Notifications (Not Implemented)
-**Decision:** Skip for Phase 1
+**Decision:** Skip for Phase 1  
 **Rationale:**
 - Requires additional infrastructure (SNS/SQS/Lambda)
 - Advanced feature beyond basic security controls
